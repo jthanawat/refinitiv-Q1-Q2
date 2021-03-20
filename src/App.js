@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import QuestionOne from './components/QuestionOne';
+import QuestionTwo from './components/QuestionTwo';
 import './App.css';
 
 function App() {
+  const [toggleQuestion, setToggleQuestion] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <ul>
+          <li onClick={() => setToggleQuestion(false)}>Question 1</li>
+          <li onClick={() => setToggleQuestion(true)}>Question 2</li>
+        </ul>
+      </nav>
+      {/* <div className="Question"> */}
+      {toggleQuestion ? <QuestionTwo /> : <QuestionOne />}
+      {/* </div> */}
     </div>
   );
 }
